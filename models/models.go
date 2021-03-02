@@ -5,6 +5,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/stonelalala/gin-web/pkg/setting"
 	"log"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var db *gorm.DB
