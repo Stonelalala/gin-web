@@ -47,7 +47,6 @@ func GetArticle(c *gin.Context) {
 
 //获取多个文章
 func GetArticles(c *gin.Context) {
-	c.SaveUploadedFile()
 	data := make(map[string] interface{})
 	maps := make(map[string] interface{})
 
