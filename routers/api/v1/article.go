@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"gin-web/pkg/logging"
 	"github.com/stonelalala/gin-web/pkg/e"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
@@ -31,7 +32,7 @@ func GetArticle(c *gin.Context) {
 			}
 		} else {
 			for _, err := range valid.Errors {
-				log.Printf("err.key: %s , err.message: %s", err.Key, err.Message )
+				logging.Info(err.Key, err.Message)
 			}
 		}
 
@@ -46,6 +47,7 @@ func GetArticle(c *gin.Context) {
 
 //获取多个文章
 func GetArticles(c *gin.Context) {
+	c.SaveUploadedFile()
 	data := make(map[string] interface{})
 	maps := make(map[string] interface{})
 
@@ -68,7 +70,7 @@ func GetArticles(c *gin.Context) {
 		data["total"] = models.GetArticleTotal(maps)
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key,err.Message)
+			logging.Info(err.Key,err.Message)
 		}
 	}
 	c.JSON(http.StatusOK, gin.H{
@@ -174,7 +176,7 @@ func EditArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

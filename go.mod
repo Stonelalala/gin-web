@@ -14,6 +14,7 @@ replace (
 
 require (
 	github.com/astaxie/beego v1.12.3
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/stonelalala/gin-web/models v0.0.0-00010101000000-000000000000
 	github.com/stonelalala/gin-web/pkg/e v0.0.0-00010101000000-000000000000
